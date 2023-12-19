@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIMER</title>
+    <style>
+    #timer{
+        border: 2px solid green;
+        border-radius: 20px;
+        height:200px;
+        width:300px;
+        margin: auto;
+        margin-top: 100px;
+        text-align: center;
+        background-color: rgb(172, 238, 19);
+    }
+
+   button{
+          
+           border-radius: 10px;
+           background-color: grey;
+           height: 40px;
+           width:80px;
+           position: relative;
+           top:20px;
+          
+   }
+   h1{
+      font-size: 40px;
+      color:rgb(4, 49, 4);
+   }
+   #output{
+      font-size: xx-large;
+   }
+
+    </style>
+</head>
+<body>
+  <div id="timer">
+  <h1>TIMER</h1>
+   <div id="output">01 h :00 m :00 s</div>
+    <button onclick="start()">START</button>
+    <button onclick="stop()">STOP</button>
+    <button onclick="reset()">RESET</button>
+    </div>
+</body>
+</html>
+<script>
+function start(){
+  
+   tt = setInterval(()=>{
+       timer()
+ },1000)
+ 
+}
+
+function stop(){
+    clearInterval(tt)
+}
+
+function reset(){
+    clearInterval(tt)
+    ans.textContent=`01 h :00 m :00 s`
+}
+let seconds=60
+let minutes=59
+let hours=0
+let ans=document.getElementById("output")
+function timer(){
+ if (seconds<=0){
+    minutes--
+    seconds=60
+}
+   
+    seconds--
+
+    if (seconds<10){
+     ans.textContent=`0${hours} h :${minutes} m :0${seconds} s`
+}
+else{
+    ans.textContent=`0${hours} h :${minutes} m :${seconds} s`
+}
+}
+</script>
